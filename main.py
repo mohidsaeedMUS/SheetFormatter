@@ -18,4 +18,3 @@ for col in sh.iter_cols(min_row = 2, max_row = 6, min_col = 5, max_col = 5):
             break
     print()
 wrkbk.save("Test.xlsx")
-#test
