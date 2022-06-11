@@ -1,5 +1,5 @@
 import openpyxl
-wb = openpyxl.load_workbook("Test_in_vscode.xlsx")
+wb = openpyxl.load_workbook("Test.xlsx")
 ws=wb.active
 sh_new = wb.create_sheet(title = "Linkedin Only")
 sh_new.append(["First Name","Last Name","Company Name","Email","Email Status","First Phone","Employees","Industry","Person", "Linkedin","Company City","Company State","Company Count"])
@@ -27,8 +27,10 @@ for cell in sh_new[column_string][1:]:
 for cell in ws[column_string][1:]:
     if cell.value == "Unavailable":
         ws.delete_rows(cell.row)
-wb.save("Test_in_vscode.xlsx")
-#my worry- if doesnt have words verified or unavailable it wont work / if do not capitalize column_string it wont work
+wb.save("Test.xlsx")
+#my worry- if doesnt have words verified or unavailable it wont work / if do not capitalize column_string it wont work/ if do not enter anything in column it has to skip
+#do we arrange each of these capabilites in functions?
+
 
     
 
