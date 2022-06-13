@@ -4,9 +4,10 @@ ws=wb.active
 mr=ws.max_row
 mc=ws.max_column
 count=0
+loop_count=0
 column_string=input("Enter Column Letter with Email (A or B or C or leave blank to skip editing):").upper()
 if len(column_string)>0:
-    for cell in ws[column_string][1:]:
+    for cell in ws[column_string][2:]:
         if cell.value is None:
             count+=1
             if count==1:
@@ -21,6 +22,7 @@ if len(column_string)>0:
                 for cell in ws[column_string][1:]:
                     if cell.value is None:
                         ws.delete_rows(cell.row)
+                break
     wb.save("Test.xlsx")
 #need to be able to move on to next if left blank
 # column=openpyxl.utils.cell.column_index_from_string(column_string) 
