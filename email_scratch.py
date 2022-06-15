@@ -4,22 +4,25 @@ import openpyxl
 wb = openpyxl.load_workbook("Test.xlsx")
 ws=wb.active
 mr,mc=ws.max_row,ws.max_column
+condition=False
 column_string=input("Enter Column Letter with Email (A or B or C or leave blank to skip editing):").upper()
 if len(column_string)>0:
     for cell in ws[column_string][1:]:
         if cell.value is None:
+            condition=True
             ws_1=wb.create_sheet('Linkedin Only')
             for i in range (1, mr +1):
                 for j in range (1, mc + 1):
                     c = ws.cell(row = i, column = j)
                     ws_1.cell(row = i, column = j).value = c.value
             break
-    for cell in ws_1[column_string][1:]:
-        if cell.value is not None:
-            ws_1.delete_rows(cell.row)
-    for cell in ws[column_string][1:]:
-        if cell.value is None:
-            ws.delete_rows(cell.row)
+    if condition==True:
+        for cell in ws_1[column_string][1:]:
+            if cell.value is not None:
+                ws_1.delete_rows(cell.row)
+        for cell in ws[column_string][1:]:
+            if cell.value is None:
+                ws.delete_rows(cell.row)
     wb.save("Test.xlsx")
 #need to be able to move on to next if left blank
 # column=openpyxl.utils.cell.column_index_from_string(column_string) 
