@@ -1,5 +1,6 @@
+#notes- as an extension/for google sheets/create test cases
+#questions- email- multiple sheets in one workbook/different headers? format of sheets (if email not blank but still want will break down)? duplicate lead criteria?
 # import openpyxl
-  
 # load excel with its path
 # wrkbk = openpyxl.load_workbook("Test.xlsx")  
 # sh = wrkbk.active
