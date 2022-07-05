@@ -13,7 +13,8 @@ iter_column=openpyxl.utils.cell.column_index_from_string(column_string)
 
 i = 1
 while i <= ws.max_row:
-    if "LLC" in ws.cell(row=i, column=iter_column).value:
+    print(ws.cell(row=i, column=iter_column).value)
+    if ws.cell(row=i, column=iter_column).value.find("LLC") != -1:
         print(ws.cell(row=i,column=iter_column))
         ws.cell(row=i, column=iter_column).value = ws.cell(row=i, column=iter_column).value.replace("LLC", "")
         i+=1
@@ -22,5 +23,6 @@ while i <= ws.max_row:
         i+=1
     else:
         i+=1
+
 
 wb.save("Test_complete.xlsx")
