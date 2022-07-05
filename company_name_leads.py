@@ -1,4 +1,5 @@
 import openpyxl
+import pandas as pd
 from openpyxl.styles import PatternFill
 
 wb = openpyxl.load_workbook("Test_template.xlsx")
@@ -13,11 +14,7 @@ iter_column=openpyxl.utils.cell.column_index_from_string(column_string)
 
 i = 1
 while i <= ws.max_row:
-    if "LLC" in ws.cell(row=i, column=iter_column).value:
-        print(ws.cell(row=i,column=iter_column))
-        ws.cell(row=i, column=iter_column).value = ws.cell(row=i, column=iter_column).value.replace("LLC", "")
-        i+=1
-    elif len(ws.cell(row=i, column=iter_column).value) > 17:
+    if len(ws.cell(row=i, column=iter_column).value) > 17:
         ws.cell(row=i, column=iter_column).fill = redFill
         i+=1
     else:
