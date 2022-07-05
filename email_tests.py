@@ -1,6 +1,6 @@
 import openpyxl,pandas
 wb = openpyxl.load_workbook("Test_template.xlsx")
-max_rows_dict={}
+max_rows_dict={} 
 max_columns_dict={}
 sheet_num=0
 count=0
@@ -34,8 +34,4 @@ for sheet in wb:
                 if cell.value is None:
                     sheet.delete_rows(cell.row)
 wb.save("Test_1.xlsx")
-
-
-
-
 #add condition to delete empty sheets at end

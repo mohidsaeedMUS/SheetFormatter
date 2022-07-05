@@ -1,5 +1,3 @@
-import time
-start_time = time.perf_counter ()
 import openpyxl
 wb = openpyxl.load_workbook("Test.xlsx")
 ws=wb.active

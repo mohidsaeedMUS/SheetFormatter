@@ -1,8 +1,13 @@
 #do this before u do email or first?
 #breaks down if not same headers for each sheet/user should be able to declare what duplicate is?
 import pandas as pd
-data = pd.read_excel('Test_in_vscode.xlsx',sheet_name=None)
-combined_df=pd.concat(data.values(), ignore_index=True)
-new_df=combined_df.drop_duplicates(subset=['First Name','Last Name'],keep='first')
-new_df.to_excel('Test_without_dups.xlsx', index = False, header=True)   
+import openpyxl
+wb = openpyxl.load_workbook("Test_template.xlsx")
+count=-1
+for sheet in wb.sheetnames:
+    count+=1
+    data = pd.read_excel('/Users/amark/Documents/GitHub/SheetFormatter/Test_template.xlsx',count)
+    print(data.head())
+    # data.drop_duplicates(keep='first',inplace=True)
+    # data.to_excel('Test_Results.xlsx',sheet_name='MAIN SHEET')
 
